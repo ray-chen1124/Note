@@ -7,6 +7,23 @@ function element(tag, content, className) {
   return node;
 }
 
+function mathText(tag, content, className) {
+  const node = element(tag, "", className);
+  let offset = 0;
+
+  for (const match of content.matchAll(/([A-Za-zΑ-Ωα-ω])_([A-Za-z0-9]+)/g)) {
+    const [notation, variable, subscript] = match;
+    node.append(content.slice(offset, match.index));
+    const symbol = element("span", variable, "math-symbol");
+    symbol.append(element("sub", subscript));
+    node.append(symbol);
+    offset = match.index + notation.length;
+  }
+
+  node.append(content.slice(offset));
+  return node;
+}
+
 function noteLink(slug) {
   return "./note.html?slug=" + encodeURIComponent(slug);
 }
@@ -83,18 +100,18 @@ function renderNote(article) {
 
   const solution = element("details");
   const steps = element("ol");
-  steps.append(...note.example.steps.map(step => element("li", step)));
-  solution.append(element("summary", "展開解答"), steps, element("p", note.example.answer, "answer"));
+  steps.append(...note.example.steps.map(step => mathText("li", step)));
+  solution.append(element("summary", "展開解答"), steps, mathText("p", note.example.answer, "answer"));
   solution.addEventListener("toggle", () => {
     solution.querySelector("summary").textContent = solution.open ? "收起解答" : "展開解答";
   });
 
   article.append(
     header,
-    noteSection("核心觀念", element("p", note.concept)),
-    noteSection("公式與適用條件", element("p", note.formula, "formula"), element("p", note.condition)),
-    noteSection("例題", element("p", note.example.question), solution),
-    noteSection("容易出錯的地方", element("p", note.pitfall))
+    noteSection("核心觀念", mathText("p", note.concept)),
+    noteSection("公式與適用條件", mathText("p", note.formula, "formula"), mathText("p", note.condition)),
+    noteSection("例題", mathText("p", note.example.question), solution),
+    noteSection("容易出錯的地方", mathText("p", note.pitfall))
   );
 
   if (note.source) {

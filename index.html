@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="從觀念、公式到例題的大學電子學筆記。">
+  <title>電子學筆記</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./notes/catalog.js" defer></script>
+  <script src="./assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要內容</a>
+  <header class="top"><div class="wrap bar">
+    <a class="brand" href="./index.html"><span class="mark" aria-hidden="true">∿</span>電子學筆記</a>
+    <nav aria-label="網站導覽"><a href="#notes" aria-current="page">筆記目錄</a></nav>
+  </div></header>
+  <main id="main" class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ELECTRONICS FIELD NOTES</p>
+        <h1>電子學筆記</h1>
+        <p class="lede">從元件觀念、近似公式到例題演算，整理大學電子學常用的判斷方法。</p>
+        <a class="primary" href="#notes">瀏覽筆記 <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="plot" aria-label="二極體順向電流與電壓的概念圖">
+        <div class="plot-label"><span>二極體順向特性</span><span>示意圖</span></div>
+        <div class="plot-area" aria-hidden="true">
+          <span class="axis-y">I<sub>D</sub></span><span class="axis-x">V<sub>D</sub></span>
+          <span class="curve"></span>
+        </div>
+        <figcaption>順向電壓增加時，電流呈指數上升。</figcaption>
+      </figure>
+    </section>
+
+    <section id="notes" class="library" aria-labelledby="notes-title">
+      <div class="library-heading">
+        <h2 id="notes-title">筆記目錄</h2>
+        <label class="search"><span>搜尋筆記</span><input id="search" type="search" placeholder="輸入關鍵字，例如 BJT"></label>
+      </div>
+      <div id="filters" class="filters" role="group" aria-label="依類別篩選"></div>
+      <p id="status" class="status" role="status"></p>
+      <div id="cards" class="cards"></div>
+      <noscript><p>請啟用 JavaScript 以瀏覽筆記。</p></noscript>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>電子學筆記</span><a href="#main">回到頂部 ↑</a></footer>
+</body>
+</html>

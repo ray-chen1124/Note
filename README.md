@@ -6,7 +6,11 @@
 
 - 直接開啟 `index.html`，或在專案根目錄執行 `python -m http.server 8080`，再開啟 `http://localhost:8080`。
 - 新增筆記先讀 [AGENTS.md](./AGENTS.md)，再由 [筆記範本](./templates/note-template.js) 建立一筆資料。新增後執行 `node scripts/check-notes.cjs`。
-- 專案初版的網頁、示範筆記與擴充規則由生成式 AI 協助製作。示範例題為自製題目。
+## 內容來源
+
+- 半導體基礎、PN 接面、兩種載子傳輸、空乏區與接面電容，以及二極體模型等五篇，依上傳的《2018 PN Junction 及基本半導體》整理，逐篇列出 PDF 頁碼與例題來源。原稿中可辨識的課本圖出自 Sedra 與 Smith 的《Microelectronic Circuits》國際第六版，公開筆記使用重述的文字。
+- NPN 偏壓、反相放大器和齊納二極體穩壓三篇為專案初版的示範筆記，例題為自製題目。
+- 生成式 AI 協助整理內容、驗算例題、排版及製作網頁與擴充規則。
 
 ## GitHub Pages
 

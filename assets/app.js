@@ -96,6 +96,10 @@ function renderNote(article) {
     noteSection("例題", element("p", note.example.question), solution),
     noteSection("容易出錯的地方", element("p", note.pitfall))
   );
+
+  if (note.source) {
+    article.append(element("footer", "資料來源｜" + note.source, "note-source"));
+  }
 }
 
 const article = document.querySelector("#note");

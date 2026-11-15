@@ -29,6 +29,7 @@ for (const note of notes) {
   }
   assert(note.category === note.category.trim() && note.category !== "全部", slug + " 的分類無效");
   requireTextArray(note.keywords, slug + ".keywords");
+  if (note.source !== undefined) requireText(note.source, slug + ".source");
   assert(example && typeof example === "object", slug + ".example 必須存在");
   requireText(example.question, slug + ".example.question");
   requireTextArray(example.steps, slug + ".example.steps");
